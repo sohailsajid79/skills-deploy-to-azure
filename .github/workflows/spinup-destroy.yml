@@ -22,7 +22,7 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CLIENT_ID }}, ${{ secrets.AZURE_CLIENT_SECRET }}, ${{ secrets.AZURE_TENANT_ID }}
 
       - name: Create Azure resource group
         if: success()
@@ -56,7 +56,7 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CLIENT_ID }}, ${{ secrets.AZURE_CLIENT_SECRET }}, ${{ secrets.AZURE_TENANT_ID }}
 
       - name: Destroy Azure environment
         if: success()
